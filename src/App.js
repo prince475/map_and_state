@@ -1,23 +1,21 @@
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
+
+  const carArray = ["Mercedes", "LandRover", "RangeRover"]
+
+  const carItems = carArray.map(car => <li key={car}>{car}</li> )
+
+
+  function addItem(){
+    const newCarItem = `Car ${carArray.length + 1}`
+    carArray.push(newCarItem)
+    console.log(carArray)
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button onClick={addItem}>Add Item</button>
+      {carItems}
     </div>
   );
 }
